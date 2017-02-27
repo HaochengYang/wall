@@ -1,0 +1,31 @@
+@using wall.Models
+@model wall.Models.Message
+<div id="header">
+    <ul style="display: inline; list-style: none;">
+     <li><h3>Liu and Yang chat room</h3></li>
+     <li>Welcome @ViewBag.CurrentUser.FirstName</li>
+     <li><a href="">Log Out</a></li>
+    </ul>
+</div>
+
+<div>
+    <form asp-controller="Message" asp-action="createMessage" method="POST" >
+
+    <label asp-for="message"></label>
+    <textarea cols="80" rows="10" name="message"></textarea>
+    <p><span style="color: red" asp-validation-for="message"></span></p>
+    <input type="submit" value="Post A Message"></input>
+
+    </form>
+</div>
+
+<div>
+    <h3>Check The Message Out</h3>
+    @foreach(var message in @ViewBag.Messages)
+    {
+        <div>
+            @Html.Partial("_MessagePartial", (Message)message)
+            <hr/>
+        </div>
+    }
+</div>

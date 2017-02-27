@@ -1,0 +1,34 @@
+@model wall.Models.RegUser
+
+<div class="logreg">
+  <h2>Registe as an user</h2>
+  <a href="/">Aleardy has an account</a>
+
+  <form asp-controller="User" asp-action="Register" method="POST">
+    <label asp-for="firstname"></label>
+    <input type="text" name="firstname">
+    <p><span style="color: red" asp-validation-for="firstname"></span></p>
+
+    <label asp-for="lastname"></label>
+    <input type="text" name="lastname">
+    <p><span style="color: red" asp-validation-for="lastname"></span></p>
+
+    <label asp-for="email"></label>
+    <input type="text" name="email">
+    <p><span style="color: red" asp-validation-for="email"></span></p>
+
+    <label asp-for="username"></label>
+    <input type="text" name="username">
+    <p><span style="color: red" asp-validation-for="username"></span></p>
+
+    <label asp-for="password"></label>
+    <input type="password" name="password">
+    <p><span style="color: red" asp-validation-for="password"></span></p>
+
+    <label asp-for="cpassword"></label>
+    <input type="password" name="cpassword">
+    <p><span style="color: red" asp-validation-for="cpassword"></span></p>
+
+    <input type="submit" value="Register">
+  </form>
+</div>
